@@ -28,15 +28,20 @@ func main() {
 	revel.Init(*runMode, *importPath, *srcPath)
 	revel.INFO.Println("Running revel server")
 	
-	revel.RegisterController((*controllers.App)(nil),
+	revel.RegisterController((*controllers.MgoController)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
-				Name: "Index",
+				Name: "Begin",
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					10: []string{ 
-					},
+				},
+			},
+			&revel.MethodType{
+				Name: "Close",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
 				},
 			},
 			
@@ -95,6 +100,21 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers.App)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "Index",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					25: []string{ 
+						"questions",
+					},
 				},
 			},
 			

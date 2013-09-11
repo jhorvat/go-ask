@@ -4,15 +4,22 @@ package routes
 import "github.com/robfig/revel"
 
 
-type tApp struct {}
-var App tApp
+type tMgoController struct {}
+var MgoController tMgoController
 
 
-func (_ tApp) Index(
+func (_ tMgoController) Begin(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("App.Index", args).Url
+	return revel.MainRouter.Reverse("MgoController.Begin", args).Url
+}
+
+func (_ tMgoController) Close(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("MgoController.Close", args).Url
 }
 
 
@@ -72,6 +79,18 @@ func (_ tTestRunner) List(
 	args := make(map[string]string)
 	
 	return revel.MainRouter.Reverse("TestRunner.List", args).Url
+}
+
+
+type tApp struct {}
+var App tApp
+
+
+func (_ tApp) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("App.Index", args).Url
 }
 
 
