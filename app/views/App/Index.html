@@ -1,20 +1,25 @@
-{{set . "title" "Home"}}
+{{set . "title" "Go Ask!"}}
 {{template "header.html" .}}
 
-<header class="hero-unit" style="background-color:#A9F16C">
-  <div class="container">
-    <div class="row">
-      <div class="hero-text">
-        {{if .questions}}
-          {{range .questions}}
-          <h1>{{.Title}}</h1>
-          <p>{{.Body}}</p>
-          {{end}}
-        {{end}}
+<div class="row">
+  <div class="small-12 medium-8 large-6 columns medium-push-4 large-push-3">
+    <!-->Feed</!-->
+    {{if .questions}}
+      {{range .questions}}
+      <div class="row">
+        <div class="small-9 large-10 columns">
+          <p><strong><a href="">{{.Title}}</a></strong><br>{{.Body}}</p>
+          <ul class="inline-list">
+            <li><a href="">Reply</a></li>
+            <li><a href="">Share</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
+      </hr>
+      {{end}}
+    {{end}}
   </div>
-</header>
+</div>
 
 <div class="container">
   <div class="row">
