@@ -8,4 +8,5 @@ type Question struct {
 	Id    bson.ObjectId "_id,omitempty"
 	Title string        "title"
 	Body  string        "body"
+	Tags  []string      "tags"
 }

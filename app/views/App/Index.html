@@ -2,23 +2,28 @@
 {{template "header.html" .}}
 
 <div class="row">
-  <div class="small-12 medium-8 large-6 columns medium-push-4 large-push-3">
-    <!-->Feed</!-->
-    {{if .questions}}
-      {{range .questions}}
-      <div class="row">
-        <div class="small-9 large-10 columns">
-          <p><strong><a href="">{{.Title}}</a></strong><br>{{.Body}}</p>
-          <ul class="inline-list">
-            <li><a href="">Reply</a></li>
-            <li><a href="">Share</a></li>
-          </ul>
-        </div>
+
+  <!-->Generate question feed</!-->
+  {{if .questions}}
+    {{range .questions}}
+    <div class="small-12 medium-8 large-6 columns medium-push-4 large-push-3">
+      <div class="small-3 large-2 columns">
+        <img src="http://placehold.it/80x80&text=[img]" />
       </div>
-      </hr>
-      {{end}}
+      <div class="small-9 large-10 columns">
+        <p><strong><a href="question/{{.Id}}">{{.Title}}</a></strong><br>{{.Body}}</p>
+        {{range .Tags}}
+        <a href="" class="tiny button">{{.}}</a>
+        {{end}}
+        <ul class="inline-list">
+          <li><a href="">Reply</a></li>
+          <li><a href="">Share</a></li>
+        </ul>
+      </div>
+    </div>
     {{end}}
-  </div>
+  {{end}}
+
 </div>
 
 <div class="container">
