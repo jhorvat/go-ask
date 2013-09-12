@@ -11,7 +11,7 @@
         <img src="http://placehold.it/80x80&text=[img]" />
       </div>
       <div class="small-9 large-10 columns">
-        <p><strong><a href="question/{{.Id}}">{{.Title}}</a></strong><br>{{.Body}}</p>
+        <p><strong><a href="question/{{bsonID .Id}}">{{.Title}}</a></strong><br>{{.Body}}</p>
         {{range .Tags}}
         <a href="" class="tiny button">{{.}}</a>
         {{end}}
