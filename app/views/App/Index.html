@@ -13,7 +13,7 @@
       <div class="small-9 large-10 columns">
         <p><strong><a href="question/{{bsonID .Id}}">{{.Title}}</a></strong><br>{{.Body}}</p>
         {{range .Tags}}
-        <a href="" class="tiny button">{{.}}</a>
+        <a href="question/tag/{{.}}" class="tiny button">{{.}}</a>
         {{end}}
         <ul class="inline-list">
           <li><a href="">Reply</a></li>

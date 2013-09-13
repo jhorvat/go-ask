@@ -1,0 +1,20 @@
+{{set . "title" .question.Title}}
+{{template "header.html" .}}
+
+<div class="row">
+	<div class="small-12 large-centered columns">
+		<h3>{{.question.Title}}</h3><hr/>
+		<div class="small-2 columns">
+			<img src="http://placehold.it/80x80&text=[img]" />
+		</div>
+		{{.question.Body}}
+		<div class="small-2 columns">
+			{{range .question.Tags}}
+	        <a href="question/tag/{{.}}" class="tiny button">{{.}}</a>
+			{{end}}
+		</div>
+	</div>
+	<hr/>
+</div>
+
+{{template "footer.html" .}}
