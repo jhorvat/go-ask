@@ -2,22 +2,40 @@
 {{template "header.html" .}}
 
 <div class="row">
-	<div class="small-12 large-centered columns">
-		<h3>{{.question.Title}}</h3><hr/>
-		<div class="small-2 columns">
-			<div class="panel">
-				<img src="http://placehold.it/80x80&text=[img]" />
-				<h6 class="subheader">username</h5>
-				<h4 class="subheader"><small>Sept 15</small></h6>
+	<div class="row">
+		<div class="small-12 large-centered columns">
+			<h3>{{.question.Title}}</h3><hr/>
+			<div class="small-1 columns">
+				<img src="http://placehold.it/34x34&text=[up]" />
+				<h5 class="subheader">100</h5>
+				<img src="http://placehold.it/34x34&text=[down]" />
+			</div>
+			{{.question.Body}}
+			<div class="small-2 columns" align="right">
+				{{range .question.Tags}}
+		        <a href="question/tag/{{.}}" class="tiny button">{{.}}</a>
+				{{end}}
 			</div>
 		</div>
-		{{.question.Body}}
-		<div class="small-2 columns">
-			{{range .question.Tags}}
-	        <a href="question/tag/{{.}}" class="tiny button">{{.}}</a>
-			{{end}}
+	</div>
+	<div class="row">
+		<div class="small-2 columns" style="margin-top:20px">
+			<ul class="inline-list">
+				<li>share</li>
+				<li>edit</li>
+				<li>flag</li>
+			</ul>
+		</div>
+		<div class="small-3 large-offset-7 columns">
+			<div class="panel" style="height:70px">
+				<ul class="inline-list">
+					<li><img src="http://placehold.it/34x34&text=[img]" /></li>
+					<li><p>jhorvat</p></li>
+				</ul>
+			</div>
 		</div>
 	</div>
+	<hr/>
 </div>
 
 {{template "footer.html" .}}
