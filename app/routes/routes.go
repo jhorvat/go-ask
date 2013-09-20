@@ -102,4 +102,11 @@ func (_ tApp) Question(
 	return revel.MainRouter.Reverse("App.Question", args).Url
 }
 
+func (_ tApp) Ask(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("App.Ask", args).Url
+}
+
 

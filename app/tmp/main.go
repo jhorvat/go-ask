@@ -128,6 +128,15 @@ func main() {
 					},
 				},
 			},
+			&revel.MethodType{
+				Name: "Ask",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					42: []string{ 
+					},
+				},
+			},
 			
 		})
 	

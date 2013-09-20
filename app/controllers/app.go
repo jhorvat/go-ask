@@ -37,3 +37,7 @@ func (c App) Question(id string) revel.Result {
 
 	return c.Render(question)
 }
+
+func (c App) Ask() revel.Result {
+	return c.Render()
+}

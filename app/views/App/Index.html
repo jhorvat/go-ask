@@ -3,35 +3,38 @@
 
 <div class="row">
 
-  <!-->Generate question feed</!-->
-  {{if .questions}}
-    {{range .questions}}
-    <div class="small-12 medium-8 large-6 columns medium-push-4 large-push-3">
-      <div class="small-3 large-2 columns">
-        <img src="http://placehold.it/80x80&text=[img]" />
-      </div>
-      <div class="small-9 large-10 columns">
-        <p><strong><a href="question/{{bsonID .Id}}">{{.Title}}</a></strong><br>{{.Body}}</p>
-        {{range .Tags}}
-        <a href="question/tag/{{.}}" class="tiny button">{{.}}</a>
-        {{end}}
-        <ul class="inline-list">
-          <li><a href="">Reply</a></li>
-          <li><a href="">Share</a></li>
-        </ul>
-      </div>
-    </div>
-    {{end}}
-  {{end}}
-
-</div>
-
-<div class="container">
   <div class="row">
-    <div class="span6">
-      {{template "flash.html" .}}
-    </div>
+      <div class="small-12 large-centered columns">
+        <a href="/"><img src="http://placehold.it/200x80&text=Go Ask!"></a>  
+        <a href="/ask" class="button" style="margin-left:64%">Ask Question</a>
+      </div>
   </div>
+
+  <hr/>
+
+  <div class="row">
+    <!-->Generate question feed</!-->
+    {{if .questions}}
+      {{range .questions}}
+      <div class="small-12 medium-8 large-6 columns medium-push-4 large-push-3">
+        <div class="small-3 large-2 columns">
+          <img src="http://placehold.it/80x80&text=[img]" />
+        </div>
+        <div class="small-9 large-10 columns">
+          <p><strong><a href="question/{{bsonID .Id}}">{{.Title}}</a></strong><br>{{.Body}}</p>
+          {{range .Tags}}
+          <a href="question/tag/{{.}}" class="tiny button">{{.}}</a>
+          {{end}}
+          <ul class="inline-list">
+            <li><a href="">Reply</a></li>
+            <li><a href="">Share</a></li>
+          </ul>
+        </div>
+      </div>
+      {{end}}
+    {{end}}
+  </div>
+  
 </div>
 
 {{template "footer.html" .}}
