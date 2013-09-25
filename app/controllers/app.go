@@ -3,7 +3,6 @@ package controllers
 import (
 	"github.com/jhorvat/go-ask/app/models"
 	"github.com/robfig/revel"
-	bson "labix.org/v2/mgo/bson"
 )
 
 type App struct {
@@ -24,20 +23,4 @@ func (c App) Index() revel.Result {
 
 	//Pass the questions in the renderargs to be inserted in the template
 	return c.Render(questions)
-}
-
-func (c App) Question(id string) revel.Result {
-	col := c.session.DB("go-ask").C("questions")
-
-	var question models.Question
-	err := col.Find(bson.M{"_id": bson.ObjectIdHex(id)}).One(&question)
-	if err != nil {
-		panic(err)
-	}
-
-	return c.Render(question)
-}
-
-func (c App) Ask() revel.Result {
-	return c.Render()
 }

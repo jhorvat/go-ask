@@ -5,8 +5,9 @@
 module:testrunner
 
 GET     /                                       App.Index
-GET		/question/:id 							App.Question
-GET		/ask									App.Ask
+GET		/question/:id 							Questions.Show
+GET		/ask									Questions.Ask
+POST	/ask 									Questions.Submit
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

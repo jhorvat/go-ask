@@ -1,0 +1,15 @@
+{{set . "title" "Ask a question"}}
+{{template "header.html" .}}
+
+<div class="row">
+	<div class="small-12 large-centered columns">
+		<form action="/ask" name="input" method="post">
+			<h2>Title</h2><input type="text" name="title"><br>
+			Question<textarea name="body" cols="30" rows="5" col="40"/></textarea><br>
+			Tags (comma separated)<input type="text" name="tags"><br>
+			<input type="submit" value="Post Question">
+		</form>
+	</div>
+</div>
+
+{{template "footer.html" .}}

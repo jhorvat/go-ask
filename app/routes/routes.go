@@ -93,20 +93,38 @@ func (_ tApp) Index(
 	return revel.MainRouter.Reverse("App.Index", args).Url
 }
 
-func (_ tApp) Question(
+
+type tQuestions struct {}
+var Questions tQuestions
+
+
+func (_ tQuestions) Show(
 		id string,
 		) string {
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "id", id)
-	return revel.MainRouter.Reverse("App.Question", args).Url
+	return revel.MainRouter.Reverse("Questions.Show", args).Url
 }
 
-func (_ tApp) Ask(
+func (_ tQuestions) Ask(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("App.Ask", args).Url
+	return revel.MainRouter.Reverse("Questions.Ask", args).Url
+}
+
+func (_ tQuestions) Submit(
+		title string,
+		body string,
+		tags string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "title", title)
+	revel.Unbind(args, "body", body)
+	revel.Unbind(args, "tags", tags)
+	return revel.MainRouter.Reverse("Questions.Submit", args).Url
 }
 
 

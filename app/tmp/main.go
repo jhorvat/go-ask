@@ -112,18 +112,23 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					26: []string{ 
+					25: []string{ 
 						"questions",
 					},
 				},
 			},
+			
+		})
+	
+	revel.RegisterController((*controllers.Questions)(nil),
+		[]*revel.MethodType{
 			&revel.MethodType{
-				Name: "Question",
+				Name: "Show",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*string)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					38: []string{ 
+					24: []string{ 
 						"question",
 					},
 				},
@@ -133,8 +138,18 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					42: []string{ 
+					28: []string{ 
 					},
+				},
+			},
+			&revel.MethodType{
+				Name: "Submit",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "title", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "body", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "tags", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
 				},
 			},
 			
