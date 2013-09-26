@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"github.com/jhorvat/go-ask/app/models"
 	"github.com/robfig/revel"
 	bson "labix.org/v2/mgo/bson"
@@ -29,8 +28,12 @@ func (c Questions) Ask() revel.Result {
 }
 
 func (c Questions) Submit(title, body, tags string) revel.Result {
+	id := bson.NewObjectId()
 	col := c.session.DB("go-ask").C("questions")
 
-	err := col.
-	return c.Redirect(Questions.Ask)
+	err := col.Insert(&models.Question{id, title, body, strings.Split(tags, ",")})
+	if err != nil {
+		panic(err)
+	}
+	return c.Redirect("/question/%s", id.Hex())
 }
