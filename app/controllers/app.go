@@ -16,7 +16,7 @@ func (c App) Index() revel.Result {
 
 	//Get a feed of all questions in the collection mapped to the Question model
 	var questions []models.Question
-	err := col.Find(nil).All(&questions)
+	err := col.Find(nil).Sort("-_id").Limit(50).All(&questions)
 	if err != nil {
 		panic(err)
 	}

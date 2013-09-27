@@ -37,3 +37,7 @@ func (c Questions) Submit(title, body, tags string) revel.Result {
 	}
 	return c.Redirect("/question/%s", id.Hex())
 }
+
+func (c Questions) Answer(body string) revel.Result {
+
+}
