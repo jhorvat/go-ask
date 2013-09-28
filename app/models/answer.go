@@ -5,6 +5,7 @@ import (
 )
 
 type Answer struct {
-	Id   bson.ObjectId "_id,omitempty"
-	Body string        "body"
+	Id       bson.ObjectId "_id,omitempty"
+	ParentId bson.ObjectId
+	Body     string "body"
 }

@@ -8,7 +8,7 @@ GET     /                                       App.Index
 GET		/question/:id 							Questions.Show
 GET		/ask									Questions.Ask
 POST	/ask 									Questions.Submit
-POST	/question/:id 							Questions.Answerd 
+POST	/question/:id 							Questions.Answer
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
