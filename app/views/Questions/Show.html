@@ -8,9 +8,9 @@
 		<div class="small-12 large-centered columns">
 			<h3>{{.question.Title}}</h3><hr/>
 			<div class="small-1 columns">
-				<img src="http://placehold.it/34x34&text=[up]" />
-				<h5 class="subheader">100</h5>
-				<img src="http://placehold.it/34x34&text=[down]" />
+				<a href=""><img src="http://placehold.it/34x34&text=[up]" /></a>
+				<h5 class="subheader">{{.question.Points}}</h5>
+				<a href=""><img src="http://placehold.it/34x34&text=[down]" /></a>
 			</div>
 			{{.question.Body}}
 			<div class="small-2 columns" align="right">
@@ -39,6 +39,42 @@
 	</div>
 
 	<!-->Answer Feed</!-->
+	{{if .answers}}
+		<div class="row" style="margin-top:5%">
+			<div class="small-12 large-centered columns">
+				<h4>{{answerCount .answers}} Answers</h4>
+			</div>
+		</div>
+		<hr/>
+		{{range .answers}}
+			<div class="row">
+				<div class="small-12 large-centered columns">
+					<div class="small-1 columns">
+						<a href=""><img src="http://placehold.it/34x34&text=[up]" /></a>
+						<h5 class="subheader">{{.Points}}</h5>
+						<a href=""><img src="http://placehold.it/34x34&text=[down]" /></a>
+					</div>
+					{{.Body}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-2 columns" style="margin-top:5%; font-size:85%">
+					<ul class="inline-list">
+						<li><a href="">share</a></li>
+					</ul>
+				</div>
+				<div class="small-3 large-offset-7 columns">
+					<div class="panel" style="height:70px">
+						<ul class="inline-list">
+							<li><img src="http://placehold.it/34x34&text=[img]" /></li>
+							<li><a href="">user</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<hr/>
+		{{end}}
+	{{end}}
 
 	<!-->Answer Form</!-->
 	<hr/>
